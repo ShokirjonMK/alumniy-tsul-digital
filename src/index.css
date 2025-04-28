@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+:root {
+  /* font-family: sans-serif;
+  line-height: 1.5;
+  font-weight: 400; */
+
+  /* color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424; */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.nunito {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer components {
+  .tag-green {
+    @apply bg-green-100 rounded-md text-green-600 py-1 px-2 text-xs tracking-wide;
+  }
+
+  .tag-red {
+    @apply bg-red-100 rounded-md text-red-600 py-1 px-2 text-xs tracking-wide disabled:cursor-not-allowed;
+  }
+
+  .tag-blue {
+    @apply bg-blue-100 rounded-md text-blue-600 py-1 px-2 text-xs tracking-wide disabled:cursor-not-allowed;
+  }
+
+  .tag-orange {
+    @apply bg-orange-100 rounded-md text-orange-600 py-1 px-2 text-xs tracking-wide disabled:cursor-not-allowed;
+  }
+
+  .tag-gray {
+    @apply bg-gray-100 rounded-md text-gray-600 py-1 px-2 text-xs tracking-wide disabled:cursor-not-allowed;
+  }
+
+  .btn-excel-export {
+    @apply bg-[#01C354]  hover:bg-[#01B951] active:bg-[#01A347] border-0 rounded-md text-white text-[13px] py-1 px-2 uppercase tracking-wide disabled:cursor-not-allowed;
+  }
+
+  .card {
+    @apply border-0 bg-white rounded-2xl px-4 py-2;
+  }
+}
+
+body {
+  margin: 0;
+  /* display: flex; */
+  /* place-items: center; */
+  min-height: 100vh;
+}
+
+.d-f {
+  display: flex;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-end {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
