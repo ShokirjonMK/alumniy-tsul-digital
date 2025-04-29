@@ -15,7 +15,7 @@ const Sidebar: React.FC = (): React.JSX.Element => {
       </div>
       <div className="flex flex-col gap-2 px-2 py-4 text-slate-300">
         {
-          privateRoutes?.map(route => (
+          privateRoutes?.map(route => route.isMenu && (
             <Link to={route.path} className={`d-f gap-2 px-4 py-2 rounded-xl ${pathname === route.path ? "bg-slate-100/10 text-blue-500 font-bold" : "font-light"}`} >
               {IconComponent(route.icon)}
               {route.title}

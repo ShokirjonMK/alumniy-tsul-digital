@@ -38,14 +38,14 @@ export const privateRoutes: IRoute[] = [
     isMenu: true,
     isRole: ["user"],
   },
-  // {
-  //   title: "Dashboard",
-  //   path: "/dashboard",
-  //   component: Dashboard,
-  //   icon: TbLayoutDashboard,
-  //   isMenu: true,
-  //   isRole: ["user"],
-  // },
+  {
+    title: "Dashboard",
+    path: "/dashboard",
+    component: Dashboard,
+    icon: TbLayoutDashboard,
+    isMenu: false,
+    isRole: ["user"],
+  },
   {
     title: "Profile",
     path: "/profile",
