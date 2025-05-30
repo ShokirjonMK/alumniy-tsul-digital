@@ -12,14 +12,14 @@ const RenderComponent = (El: any, layout?: boolean) => {
 const RouterMiddleware: React.FC = (): React.JSX.Element => {
   const { isAuth } = useAuth();
 
-  function checkRole(role: string[] | string) {
-    // if (Array.isArray(role)) {
-    //   return user?.roles?.some((r) => role?.includes(r));
-    // }
+  // function checkRole() {
+  //   // if (Array.isArray(role)) {
+  //   //   return user?.roles?.some((r) => role?.includes(r));
+  //   // }
 
-    // return user?.roles?.includes(role);
-    return true
-  }
+  //   // return user?.roles?.includes(role);
+  //   return true
+  // }
 
   if (isAuth) {
     return (
@@ -45,7 +45,7 @@ const RouterMiddleware: React.FC = (): React.JSX.Element => {
           path="*"
           element={
             <Navigate
-              to={checkRole("administrator") ? "/dashboard" : "/"}
+              to={"/dashboard"}
               replace
             />
           }

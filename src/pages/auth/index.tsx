@@ -4,7 +4,7 @@ import { Button, Form, Input } from 'antd';
 import { useAuth } from '../../store';
 
 const Login: React.FC = (): React.JSX.Element => {
-  const { isAuth, login } = useAuth();
+  const { login } = useAuth();
 
   function handleSubmit(values: any) {
     login(values);

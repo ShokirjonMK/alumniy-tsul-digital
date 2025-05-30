@@ -1,5 +1,5 @@
 import { Input } from 'antd';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { TbBuildingCommunity, TbCloudUpload, TbMoodSmile, TbSend } from 'react-icons/tb';
 
 const Chat: React.FC = (): React.JSX.Element => {
