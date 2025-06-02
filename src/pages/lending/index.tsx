@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../assets/logos/main_logo.png";
+import banner from "../../assets/undraw/inteview.svg"
+import { FiMenu, FiX } from "react-icons/fi";
 
 const InformationPage: React.FC = (): React.JSX.Element => {
+  // hamburger menu
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div className="information-page bg-gray-50 min-h-screen">
       {/* Header */}
       <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="container mx-auto p-6 flex justify-between items-center">
+        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <img
@@ -19,40 +28,120 @@ const InformationPage: React.FC = (): React.JSX.Element => {
             </span>
           </div>
 
-          {/* Navigation */}
-          <nav className="hidden md:flex space-x-6 text-sm font-medium text-gray-700">
+          {/* Desktop Navigation - hidden on mobile */}
+          <nav className="hidden md:flex space-x-6 text-xl font-medium text-gray-700">
             <a href="/" className="hover:text-blue-600">
-              About us
+              Home
             </a>
             <a href="/InformationPage" className="text-blue-600 font-bold">
-              Information
+              About Alumni
             </a>
             <a href="/Vacancies" className="hover:text-blue-600">
-              Vacancies
+              Jobs
             </a>
             <a href="/Events" className="hover:text-blue-600">
-              Events
+              News
             </a>
             <a href="/Contact" className="hover:text-blue-600">
               Contact
             </a>
           </nav>
 
-          {/* Login Button */}
-          <div>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm">
+          {/* Mobile Menu Button - visible only on mobile */}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={toggleMenu}
+              className="text-gray-700 hover:text-blue-600 focus:outline-none"
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? (
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
+          </div>
+
+          {/* Login Button - hidden on mobile */}
+          <div className="hidden md:block">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-7 py-2 rounded-md text-sm">
               Login
             </button>
           </div>
         </div>
+
+        {/* Mobile Menu - appears when hamburger is clicked */}
+        {isMenuOpen && (
+          <div className="lg:hidden bg-white border-t border-gray-200">
+            <nav className="flex flex-col px-6 py-4 space-y-4">
+              <a
+                href="/"
+                className="text-gray-700 hover:text-blue-600 text-lg font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Home
+              </a>
+              <a
+                href="/InformationPage"
+                className="text-blue-600 font-bold text-lg"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About Alumni
+              </a>
+              <a
+                href="/Vacancies"
+                className="text-gray-700 hover:text-blue-600 text-lg font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Jobs
+              </a>
+              <a
+                href="/Events"
+                className="text-gray-700 hover:text-blue-600 text-lg font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                News
+              </a>
+              <a
+                href="/Contact"
+                className="text-gray-700 hover:text-blue-600 text-lg font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact
+              </a>
+              <button
+                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm w-full mt-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Login
+              </button>
+            </nav>
+          </div>
+        )}
       </header>
 
+      {/*  */}
+      {/* Home section banner */}
+      <section className="bg-blue-50 p-6 mb-8 w-full h-screen bg-no-repeat bg bg-right bg-size-[400px] sm:bg-contain  xl:bg-auto flex items-center" style={{ backgroundImage: `url(${banner})` }}>
+        <div className="container mx-auto px-6 py-8">
+          <div>
+            <h2 className="text-[40px] font-semibold text-blue-600 mb-4">Welcome to TSUL Alumni Career Centre</h2>
+            <p className="text-gray-700">
+              We are dedicated to connecting students and alumni with career opportunities, resources, and support.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Main Content */}
-      <main className="container mx-auto px-6 py-8">
+      <main className="container mx-auto px-6 py-8" >
         <div className="bg-white rounded-lg shadow-md p-6">
           <h1 className="text-2xl font-bold text-gray-800 mb-6">Information</h1>
 
-          {/* Information Sections */}
           <div className="space-y-8">
             {/* About Section */}
             <section>
@@ -140,10 +229,10 @@ const InformationPage: React.FC = (): React.JSX.Element => {
             </section>
           </div>
         </div>
-      </main>
+      </main >
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8">
+      <footer className="bg-gray-800 text-white py-8" >
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
@@ -156,9 +245,9 @@ const InformationPage: React.FC = (): React.JSX.Element => {
               <h4 className="font-medium mb-4">Quick Links</h4>
               <ul className="space-y-2 text-sm text-gray-400">
                 <li><a href="/" className="hover:text-white">Home</a></li>
-                <li><a href="/InformationPage" className="hover:text-white">Information</a></li>
-                <li><a href="/Vacancies" className="hover:text-white">Vacancies</a></li>
-                <li><a href="/Events" className="hover:text-white">Events</a></li>
+                <li><a href="/InformationPage" className="hover:text-white">About alumni</a></li>
+                <li><a href="/Vacancies" className="hover:text-white">Jobs</a></li>
+                <li><a href="/Events" className="hover:text-white">News</a></li>
               </ul>
             </div>
             <div>
@@ -205,8 +294,8 @@ const InformationPage: React.FC = (): React.JSX.Element => {
             <p>© {new Date().getFullYear()} Tashkent State University of Law. All rights reserved.</p>
           </div>
         </div>
-      </footer>
-    </div>
+      </footer >
+    </div >
   );
 };
 
