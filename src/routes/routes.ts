@@ -1,3 +1,4 @@
+import JobPage from "../pages/lending/jobs";
 import {
   Chat,
   Dashboard,
@@ -20,6 +21,16 @@ export const publicRoutes = [
     title: "lendin",
     path: "/",
     component: LendingPage,
+  },
+  {
+    title: "jobs",
+    path: "/jobs",
+    component: JobPage,
+  },
+    {
+    title: "news",
+    path: "/",
+    component: JobPage,
   },
   {
     title: "Login",
