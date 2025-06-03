@@ -1,4 +1,4 @@
-import JobPage from "../pages/lending/jobs";
+import Jobs from "../pages/lending/jobs";
 import {
   Chat,
   Dashboard,
@@ -15,6 +15,9 @@ import {
   TbSearch,
   TbUser,
 } from "react-icons/tb";
+import News from "../pages/lending/news";
+import About from "../pages/lending/about";
+import Contact from "../pages/lending/contact";
 
 export const publicRoutes = [
   {
@@ -23,14 +26,24 @@ export const publicRoutes = [
     component: LendingPage,
   },
   {
-    title: "jobs",
+    title: "Jobs",
     path: "/jobs",
-    component: JobPage,
+    component: Jobs,
   },
-    {
-    title: "news",
-    path: "/",
-    component: JobPage,
+  {
+    title: "News",
+    path: "/news",
+    component: News,
+  },
+  {
+    title: "About",
+    path: "/about",
+    component: About,
+  },
+  {
+    title: "Contact",
+    path: "/contact",
+    component: Contact,
   },
   {
     title: "Login",

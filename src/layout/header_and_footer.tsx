@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "../assets/logos/main_logo.png";
+import { Link } from "react-router-dom";
 
 interface MenuItem {
     label: string;
@@ -35,7 +36,7 @@ const HeaderAndFooter: React.FC<Props> = ({ children, menuItems }): React.JSX.El
                             alt="TSUL Alumni Logo"
                             className="h-10"
                         />
-                        <span className="font-semibold text-lg tracking-wide text-gray-800">
+                        <span className="font-bold text-lg tracking-wide text-gray-800">
                             TSUL ALUMNI
                         </span>
                     </div>
@@ -75,9 +76,9 @@ const HeaderAndFooter: React.FC<Props> = ({ children, menuItems }): React.JSX.El
 
                     {/* Login Button - hidden on mobile */}
                     <div className="hidden md:block">
-                        <button className="bg-blue-600 hover:bg-blue-700 text-white px-7 py-2 rounded-md text-sm">
+                        <Link to="/login" className="bg-blue-600 hover:bg-blue-700 text-white px-7 py-2 rounded-md text-sm">
                             Login
-                        </button>
+                        </Link>
                     </div>
                 </div>
 
