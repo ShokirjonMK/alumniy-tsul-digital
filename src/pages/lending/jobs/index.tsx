@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Card, Pagination, Tag, List, Modal } from "antd";
+import { Pagination, Tag, List, Modal } from "antd";
 import { EnvironmentOutlined } from "@ant-design/icons";
 import { FaArrowRight } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const jobData = [
     {
@@ -117,21 +118,31 @@ const Jobs: React.FC = () => {
                             onClick={() => handleJobClick(job)}
                             className="w-full cursor-pointer"
                         >
-                            <Card
-                                title={<span className="text-blue-600 text-lg font-semibold">{job.title}</span>}
-                                extra={<Tag style={{ fontSize: "16px" }} color={job.type === "Full-time" ? "blue" : "green"}>{job.type}</Tag>}
-                                className="h-[200px] hover:shadow-lg transition-shadow duration-200"
+                            <div
+                                className=" rounded-lg bg-gray-50 hover:shadow-lg transition-shadow duration-200 h-[200px] flex flex-col"
                             >
-                                <p className="mb-1 font-medium">
-                                    <span className="text-gray-600">Employer:</span> {job.employer}
-                                </p>
-                                <p className="mb-1 text-gray-600">
-                                    <EnvironmentOutlined className="mr-1" /> {job.location}
-                                </p>
-                                <p className="text-gray-700 text-sm leading-relaxed line-clamp-2">
-                                    {job.description}
-                                </p>
-                            </Card>
+                                <div className="flex justify-between items-center p-4 border-b border-gray-200">
+                                    <h3 className="text-blue-600 text-lg font-semibold">{job.title}</h3>
+                                    <span
+                                        className={`px-2 py-1 rounded text-sm font-medium ${job.type === "Full-time" ? 'bg-blue-100 text-blue-800' : 'bg-green-100 text-green-800'}`}
+                                        style={{ fontSize: "16px" }}
+                                    >
+                                        {job.type}
+                                    </span>
+                                </div>
+
+                                <div className="p-4 flex-grow flex flex-col">
+                                    <p className="mb-1 font-medium">
+                                        <span className="text-gray-600">Employer:</span> {job.employer}
+                                    </p>
+                                    <p className="mb-1 text-gray-600 flex items-center">
+                                        <EnvironmentOutlined className="mr-1" /> {job.location}
+                                    </p>
+                                    <p className="text-gray-700 text-sm leading-relaxed line-clamp-2 mt-auto">
+                                        {job.description}
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </List.Item>
                 )}
@@ -160,12 +171,14 @@ const Jobs: React.FC = () => {
                 open={isModalVisible}
                 onCancel={handleModalClose}
                 footer={[
-                    <button
-                        key="apply"
-                        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
-                    >
-                        Apply Now
-                    </button>
+                    <Link to="/login" key="apply-link" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+                        <button
+                            key="apply"
+                            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+                        >
+                            Apply Now
+                        </button>
+                    </Link>,
                 ]}
                 width={800}
             >

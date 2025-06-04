@@ -91,7 +91,7 @@ const News: React.FC = () => {
                 {newsData.map((news) => (
                     <div
                         key={news.id}
-                        className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200 cursor-pointer"
+                        className="bg-gray-50 rounded-lg  overflow-hidden hover:shadow-lg transition-shadow duration-200 cursor-pointer"
                         onClick={() => handleNewsClick(news)}
                     >
                         <img src={news.imageUrl} alt={news.title} className="w-full h-48 object-cover" />
@@ -137,11 +137,13 @@ const News: React.FC = () => {
                             </p>
                         </div>
 
-                        <img
-                            src={selectedNews.imageUrl}
-                            alt={selectedNews.title}
-                            className="w-full h-64 object-cover rounded-lg mb-4"
-                        />
+                        <div className="flex justify-center">
+                            <img
+                                src={selectedNews.imageUrl}
+                                alt={selectedNews.title}
+                                className="w-[400px] object-contain rounded-lg mb-4"
+                            />
+                        </div>
 
                         <div className="prose max-w-none">
                             <p className="text-gray-700 leading-relaxed">
